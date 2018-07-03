@@ -1,0 +1,58 @@
+html{
+    padding: none;
+    border:none;
+    background: black;
+}
+
+body{
+    text-align: center;
+}
+
+h1, p{
+    color: orange;
+}
+
+button{
+    margin: 5px
+}
+
+section{
+    margin: 20px;
+    text-align: center;
+
+}
+
+.space{
+    display: inline-block;
+    background: url("https://media.giphy.com/media/nBUW1suj9CZaw/giphy.gif") no-repeat center center;
+    width: 718px;
+    height: 404px;
+    border: 6px solid grey;
+    border-radius: 25%;
+    position: relative;
+}
+
+
+
+
+.hidden{
+    visibility: hidden;
+}
+
+.one{
+    display: block;
+    position: absolute;  
+    top: 100px;
+    transition: left 1s;
+    transition: right 1s;
+}
+.rightMove{
+    right: 150px;
+}
+.two{
+    display: block;
+    position: absolute;  
+    top: 210px;
+    transition: left 1s;
+    transition: right 1s;
+}

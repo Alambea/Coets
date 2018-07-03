@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <script type="text/javascript" src="_scripts/scripts.js"></script>
+    <title>Exercici Coet - Ana Lambea</title>
+    <link rel="shortcut icon" href="_images/icon.PNG"/>
+    <link rel="stylesheet" href="_css/styles.css">
+
+
+</head>
+<body>
+    <header></header> 
+    <section>
+        <h1>Rockets!</h1>
+        <button type="button" onclick= "createRocket('32WESSDS', [10, 30, 80])">Create Rocket 1</button>
+        <button type="button" onclick= "createRocket('LDSFJA32', [30,40,50,50,30,10])">Create Rocket 2</button>
+        <br/>
+        <button type="button" onclick= "accelerate(0)">Accelerate Rocket 1</button>
+        <button type="button" onclick= "accelerate(1)">Accelerate Rocket 2</button>
+        <button type="button" onclick= "decrease(0)">Brake Rocket 1</button>
+        <button type="button" onclick= "decrease(1)">Brake Rocket 2</button>
+        <br/>
+        <button type="button" onclick= "rocketInfo(0)">Print Rocket 1 info</button>
+        <button type="button" onclick= "rocketInfo(1)">Print Rocket 2 info</button>
+        <button type="button" onclick= "printAll()">Print all Rockets</button>
+    </section>
+    <div class="space">
+        <img id="one" class="hidden one" src="_images/rocket1.png" alt="Rocket 1" width="100px" heigth="100px">
+        <br/>
+        <img id="two" class="hidden two" src="_images/rocket2.png" alt="Rocket 2" width="100px" heigth="100px">
+    </div>
+    <p id="info"></p>      
+
+    <footer></footer>
+</body>
+</html>
