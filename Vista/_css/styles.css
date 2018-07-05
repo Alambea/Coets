@@ -1,0 +1,135 @@
+html{
+    padding: none;
+    border:none;
+    background: black;
+    color: seagreen;
+    font-family: 'VT323', monospace,sans-serif;
+
+}
+
+body{
+    text-align: center;
+    font-size: 1.1em;
+}
+
+header{
+        color: orange;
+        font-family: monospace,sans-serif;
+}
+
+.title{
+    display: block;
+    vertical-align: middle;
+    padding: none;
+    height: 188px;
+    vertical-align: middle;
+    font-style: italic;
+    font-size: 1.5em;
+    text-shadow: 2px 2px darkred;
+    transition: font-size 1s;
+    margin-bottom: 10px;
+
+}
+.title:hover{
+    font-size: 3em;
+    background: url(/Vista/_images/explosion.gif)no-repeat center;
+}
+
+
+section{
+    margin: 20px;
+        color: darkgreen
+
+}
+
+
+button{
+    margin: 5px;
+    font-family: 'VT323', monospace,sans-serif;
+    font-size: 1em;
+    background-color: brown;
+    border-radius: 10%;
+    border-bottom: none;
+    cursor:crosshair;
+}
+button:hover{
+    background-color: goldenrod;
+    outline-color: lightgray;
+}
+
+button:focus{
+    outline-color: transparent;
+}
+
+
+
+.space{
+    display: inline-block;
+    background: url("https://media.giphy.com/media/nBUW1suj9CZaw/giphy.gif") no-repeat center center;
+    width: 718px;
+    
+    height: 404px;
+    border: 10px solid dimgrey;
+    border-top: 3px solid lightgray;
+    border-bottom: 3px solid lightgray;
+    border-radius: 28%;
+    position: relative;
+}
+
+
+/******Screen-Text Position*****/
+.screen-left{
+    height: 380px;
+    width: 205px;
+    float: left;
+    background: url(/Vista/_images/green-screen.jpg)no-repeat center;
+    color:lightgray;
+    text-transform: uppercase;
+    font-size: 4em;
+    position: relative;
+}
+
+.screen-right{
+    height: 380px;
+    width: 205px;
+    float: right;
+    background: url(/Vista/_images/green-screen-right.jpg)no-repeat center;
+    color:lightgray;
+    text-transform: uppercase;
+    font-size: 4em;
+    position: relative;
+}
+.center{
+    text-shadow: 2px 2px darkgreen;
+    position: absolute;
+    bottom:100px;
+    left:61px;    
+}
+
+/******Moving Rockets*****/
+
+.hidden{
+    visibility: hidden;
+}
+
+.one{
+    display: block;
+    position: absolute;  
+    top: 100px;
+    transition: left 1s;
+    transition: right 1s;
+}
+.rightMove{
+    right: 150px;
+}
+.two{
+    display: block;
+    position: absolute;  
+    top: 210px;
+    transition: left 1s;
+    transition: right 1s;
+}
+.one:hover, .two:hover{
+    filter: sepia();
+    cursor:crosshair;
+}
