@@ -39,4 +39,11 @@ function Rocket (code, propeller) {
         }
         return speed;
     }
+    this.maxPower = function(){
+        var mP = 0;
+        for (var i=0 ; i<pr.length ; i++){
+            mP += pr[i].maxPower;
+        }
+        return mP;
+    }
 }

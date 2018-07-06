@@ -3,7 +3,10 @@ html{
     border:none;
     background: black;
     color: seagreen;
+    text-shadow: 0.5px 0.5px darkgreen;
     font-family: 'VT323', monospace,sans-serif;
+    position: relative;
+    text-align: center;
 
 }
 
@@ -13,22 +16,20 @@ body{
 }
 
 header{
-        color: orange;
-        font-family: monospace,sans-serif;
+    color: orange;
+    font-family: 'VT323', monospace,sans-serif;
 }
 
 .title{
     display: block;
-    vertical-align: middle;
     padding: none;
+    height: 100px;
     height: 188px;
     vertical-align: middle;
     font-style: italic;
     font-size: 1.5em;
     text-shadow: 2px 2px darkred;
     transition: font-size 1s;
-    margin-bottom: 10px;
-
 }
 .title:hover{
     font-size: 3em;
@@ -38,8 +39,6 @@ header{
 
 section{
     margin: 20px;
-        color: darkgreen
-
 }
 
 
@@ -48,6 +47,7 @@ button{
     font-family: 'VT323', monospace,sans-serif;
     font-size: 1em;
     background-color: brown;
+    text-shadow: 0.5px 0.5px darkred;
     border-radius: 10%;
     border-bottom: none;
     cursor:crosshair;
@@ -61,18 +61,21 @@ button:focus{
     outline-color: transparent;
 }
 
-
+.create{
+    background-color: seagreen;
+    text-shadow: 0.5px 0.5px darkgreen;
+}
 
 .space{
     display: inline-block;
     background: url("https://media.giphy.com/media/nBUW1suj9CZaw/giphy.gif") no-repeat center center;
     width: 718px;
-    
     height: 404px;
     border: 10px solid dimgrey;
     border-top: 3px solid lightgray;
     border-bottom: 3px solid lightgray;
     border-radius: 28%;
+    box-shadow: 5px 1px 10px 3px #1A1A1A;    /*????*/
     position: relative;
 }
 
@@ -81,29 +84,60 @@ button:focus{
 .screen-left{
     height: 380px;
     width: 205px;
+    animation: blink 2s infinite 900ms;
     float: left;
-    background: url(/Vista/_images/green-screen.jpg)no-repeat center;
+    list-style-image: url("images/1.gif");
+
+    background: url(/Vista/_images/screen-left.jpg)no-repeat center;
     color:lightgray;
     text-transform: uppercase;
     font-size: 4em;
     position: relative;
+}
+@keyframes blink{
+  from {opacity: 1;} 
+  to {opacity: 0.7; } 
+}
+@keyframes blink{
+  to {opacity: 1;} 
+  from {opacity: 0.7; } 
 }
 
 .screen-right{
     height: 380px;
     width: 205px;
+    animation: blink 2s infinite 900ms;
     float: right;
-    background: url(/Vista/_images/green-screen-right.jpg)no-repeat center;
+    background: url(/Vista/_images/screen-right.jpg) no-repeat center;
     color:lightgray;
     text-transform: uppercase;
     font-size: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     position: relative;
 }
 .center{
-    text-shadow: 2px 2px darkgreen;
+    text-shadow: 3px 2px #1F8052;
+    color: white;
     position: absolute;
-    bottom:100px;
-    left:61px;    
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;   
+    bottom: auto;
+    margin-top:200px;
+}
+
+.center-title{
+    text-shadow: 5px 2px #1F8052;
+    font-size: 0.9em;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
 /******Moving Rockets*****/
@@ -119,9 +153,7 @@ button:focus{
     transition: left 1s;
     transition: right 1s;
 }
-.rightMove{
-    right: 150px;
-}
+
 .two{
     display: block;
     position: absolute;  
@@ -132,4 +164,13 @@ button:focus{
 .one:hover, .two:hover{
     filter: sepia();
     cursor:crosshair;
+}
+
+
+
+footer{
+    padding: 50px 0 0 0;
+    position: relative;
+    bottom: auto;
+    
 }

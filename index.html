@@ -19,8 +19,8 @@
     </header> 
     <section>
 
-        <button type="button" onclick= "createRocket('32WESSDS', [10, 30, 80])">Create Rocket 1</button>
-        <button type="button" onclick= "createRocket('LDSFJA32', [30,40,50,50,30,10])">Create Rocket 2</button>
+        <button type="button" class="create" onclick= "createRocket('32WESSDS', [10, 30, 80])">Create Rocket 1</button>
+        <button type="button" class="create" onclick= "createRocket('LDSFJA32', [30,40,50,50,30,10])">Create Rocket 2</button>
         <br/>
         <button type="button" onclick= "accelerate(0)">Accelerate Rocket 1</button>
         <button type="button" onclick= "accelerate(1)">Accelerate Rocket 2</button>
@@ -32,16 +32,18 @@
         <button type="button" onclick= "printAll()">Print all Rockets</button>
     </section>
     <section>
-    <div class="screen-left"><p id="screen-left" class="center">150</p></div>
+    <div  class="screen-left"><p id="title-0" class="center-title">Actual speed_</p><p id="screen-0" class="center">___</p></div>
     <div class="space">
         <img id="32WESSDS" class="hidden one" src="Vista/_images/rocket1.png" alt="Rocket 1" width="100px" heigth="100px">
         <br/>
         <img id="LDSFJA32" class="hidden two" src="Vista/_images/rocket2.png" alt="Rocket 2" width="100px" heigth="100px">
     </div>
-    <div class="screen-right"><p id="screen-right" class="center">150</p></div>
+    <div class="screen-right"><p id="title-1" class="center-title">actual speed_</p><p id="screen-1" class="center">___</p></div>
     </section>
     <p id="info"></p>      
 
-    <footer></footer>
+    <footer>
+  <!--  <p>&copy;Ana Lambea | Rockets Exercice 2018_</p>-->
+    </footer> 
 </body>
 </html>

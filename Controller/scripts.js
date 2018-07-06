@@ -77,7 +77,8 @@ function createRocket(code, propeller){
         if(rockets.length == 0){
             var rocket = new Rocket(code, propeller);
             rockets.push(rocket);
-            document.getElementById("info").innerHTML = "Rocket " + rocket.code + " has been created.";
+            document.getElementById("info").innerHTML = "Rocket " + rocket.code + " has been created_";
+            document.getElementById("screen-0").innerHTML = rocket.actualSpeed();
             noRockets = false;
             
             /*Rocket1 appears*/
@@ -86,15 +87,15 @@ function createRocket(code, propeller){
            
             var rocket = new Rocket(code, propeller);
             rockets.push(rocket);
-            document.getElementById("info").innerHTML = "Rocket " + rocket.code + " has been created.";
-            
-            /*Rocket2 appears*/
+            document.getElementById("info").innerHTML = "Rocket " + rocket.code + " has been created_";
+            document.getElementById("title-1").innerHTML = "Actual state_";
+            document.getElementById("screen-1").innerHTML = rocket.actualSpeed();            /*Rocket2 appears*/
              document.getElementById("LDSFJA32").classList.remove("hidden"); 
         } else if (repeatedRocket(code) == true){
-            document.getElementById("info").innerHTML = "This rocket has already been created.";
+            document.getElementById("info").innerHTML = "This rocket has already been created_";
 
         } else  {
-            document.getElementById("info").innerHTML = "There's already two rockets.";
+            document.getElementById("info").innerHTML = "There's already two rockets_";
         }
 }
 
@@ -120,7 +121,6 @@ function moveRight(n){
     document.getElementById("LDSFJA32").style.transition = "all 1s"; 
     if (n==0){
         document.getElementById("32WESSDS").style.left = (rockets[n].actualSpeed()/2.5) + "%";   
-        console.log(rockets[n].actualSpeed())
     } else if (n==1){
         document.getElementById("LDSFJA32").style.left = (rockets[n].actualSpeed()/2.5) + "%";        
     }
@@ -144,11 +144,25 @@ function accelerate(n){
     if(noRockets){
         rocketless();
     } else {
-        rockets[n].speedUp();           
-        document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has accelerated.";
-        
-        /*Move right*/
-        moveRight(n);
+        rockets[n].speedUp();    
+        if (rockets[n].actualSpeed() == rockets[n].maxPower()){
+            document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has reached its maximum power_";
+            var idTitle = "title-"+ n;
+            var idScreen = "screen-"+n;
+            document.getElementById(idTitle).innerHTML = "Max power!";
+            document.getElementById(idScreen).style.color = "brown";
+            document.getElementById(idScreen).style.textShadow = "2px 2px darkred";        
+            document.getElementById(idScreen).innerHTML = rockets[n].actualSpeed();
+        } else {
+            document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has accelerated_";
+            var idTitle = "title-"+ n;
+            var idScreen = "screen-"+n;
+            document.getElementById(idTitle).innerHTML = "speed up!";
+            document.getElementById(idScreen).innerHTML = rockets[n].actualSpeed();
+
+            /*Move right*/
+            moveRight(n);
+        }
     }
 }
 
@@ -158,8 +172,13 @@ function decrease(n){
     } else {
         if(rockets[n].actualSpeed() !== 0){
             rockets[n].brake();
-            document.getElementById("info").innerHTML = "Rocket's " + rockets[n].code + " speed has decresed.";
-            console.log(rockets[n].code, rockets[n].actualSpeed());
+            document.getElementById("info").innerHTML = "Rocket's " + rockets[n].code + " speed has decresed_";
+            var idTitle = "title-"+ n;
+            var idScreen = "screen-"+n;
+            document.getElementById(idScreen).removeAttribute("style");
+            document.getElementById(idTitle).innerHTML = "Slow down!";
+            document.getElementById(idScreen).innerHTML = rockets[n].actualSpeed();
+            
             moveLeft(n);
             if (rockets[n].actualSpeed() == 0){
                 printStopped(n);
@@ -172,7 +191,11 @@ function decrease(n){
 }
 
 function printStopped(n){
-    document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has stopped.";
+    var idTitle = "title-"+ n;
+    var idScreen = "screen-"+n;
+    document.getElementById(idTitle).innerHTML = "Stopped";
+    document.getElementById(idScreen).innerHTML = "___";
+    document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has stopped_";
     console.log(rockets[n].code, rockets[n].actualSpeed());
 }
 
@@ -187,7 +210,7 @@ function rocketInfo(n){
             var p = rockets[n].propeller[i].actualPower
             propList.push(p);
         }
-    var info = "Rocket " + rockets[n].code + " boosters max power: " + propList.toString() + "\n";
+    var info = "Rocket " + rockets[n].code + " boosters max power: " + propList.toString() + "_\n";
     document.getElementById("info").innerHTML = info;
     return info;
     }
@@ -206,7 +229,7 @@ function printAll(){
 }
 
 function rocketless(){
-    document.getElementById("info").innerHTML = "There're no Rockets yet, create one to continue.";
+    document.getElementById("info").innerHTML = "There're no Rockets yet, create one to continue_";
 }
 
 
