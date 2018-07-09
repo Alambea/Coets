@@ -3,17 +3,16 @@ html{
     border:none;
     background: black;
     color: seagreen;
+    text-align: center;
     text-shadow: 0.5px 0.5px darkgreen;
     font-family: 'VT323', monospace,sans-serif;
-    position: relative;
-    text-align: center;
-
-}
-
-body{
-    text-align: center;
     font-size: 1.1em;
+    position: relative;
+
 }
+
+
+/******HEATHER and FOOTER*****/
 
 header{
     color: orange;
@@ -33,9 +32,19 @@ header{
 }
 .title:hover{
     font-size: 3em;
-    background: url(/Vista/_images/explosion.gif)no-repeat center;
+    background: url(../_images/explosion.gif)no-repeat center;
+    background: url(../_images/explosion.gif)no-repeat center;
 }
 
+
+footer{
+    padding: 50px 0 0 0;
+    position: relative;
+    bottom: auto;
+    
+}
+
+/******MAIN******/
 
 section{
     margin: 20px;
@@ -86,9 +95,7 @@ button:focus{
     width: 205px;
     animation: blink 2s infinite 900ms;
     float: left;
-    list-style-image: url("images/1.gif");
-
-    background: url(/Vista/_images/screen-left.jpg)no-repeat center;
+    background: url(../_images/screen-left.jpg)no-repeat center;
     color:lightgray;
     text-transform: uppercase;
     font-size: 4em;
@@ -108,7 +115,7 @@ button:focus{
     width: 205px;
     animation: blink 2s infinite 900ms;
     float: right;
-    background: url(/Vista/_images/screen-right.jpg) no-repeat center;
+    background: url(../_images/screen-right.jpg) no-repeat center;
     color:lightgray;
     text-transform: uppercase;
     font-size: 4em;
@@ -167,10 +174,3 @@ button:focus{
 }
 
 
-
-footer{
-    padding: 50px 0 0 0;
-    position: relative;
-    bottom: auto;
-    
-}
