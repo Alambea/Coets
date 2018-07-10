@@ -14,7 +14,7 @@ console.log(rocket1.code + " has: " + rocket1.propeller.length + " propellers. \
 
 /******Speed Console.log******/
 function printPower(){
-    console.log("Rocket 1 power: " + rocket1.actualSpeed() + "\nRocket 2 power: " + rocket2.actualSpeed());
+    console.log("Rocket 1 power: " + rocket1.currentSpeed + "\nRocket 2 power: " + rocket2.currentSpeed);
 }
 
 /******Code + Propellers Console.log******/
@@ -25,7 +25,7 @@ console.log(rocket1.code + ": number of propellers: " + rocket1.propeller.length
 //****************************FASE 3****************************//
 
 /******Acceleracions/Frenades******/
-console.log("Actual speed rocket 1: " + rocket1.actualSpeed() + "\nActual speed rocket 2: " + rocket2.actualSpeed());
+console.log("Actual speed rocket 1: " + rocket1.currentSpeed + "\nActual speed rocket 2: " + rocket2.currentSpeed);
 
 
 for( var i=0 ; i<3 ; i++){
@@ -78,7 +78,7 @@ function createRocket(code, propeller){
             var rocket = new Rocket(code, propeller);
             rockets.push(rocket);
             document.getElementById("info").innerHTML = "Rocket " + rocket.code + " has been created_";
-            document.getElementById("screen-0").innerHTML = rocket.actualSpeed();
+            document.getElementById("screen-0").innerHTML = rocket.currentSpeed;
             noRockets = false;
             
             /*Rocket1 appears*/
@@ -89,7 +89,7 @@ function createRocket(code, propeller){
             rockets.push(rocket);
             document.getElementById("info").innerHTML = "Rocket " + rocket.code + " has been created_";
             document.getElementById("title-1").innerHTML = "Actual state_";
-            document.getElementById("screen-1").innerHTML = rocket.actualSpeed();            /*Rocket2 appears*/
+            document.getElementById("screen-1").innerHTML = rocket.currentSpeed;            /*Rocket2 appears*/
              document.getElementById("LDSFJA32").classList.remove("hidden"); 
         } else if (repeatedRocket(code) == true){
             document.getElementById("info").innerHTML = "This rocket has already been created_";
@@ -120,9 +120,9 @@ function moveRight(n){
     document.getElementById("32WESSDS").style.transition = "all 1s";
     document.getElementById("LDSFJA32").style.transition = "all 1s"; 
     if (n==0){
-        document.getElementById("32WESSDS").style.left = (rockets[n].actualSpeed()/2.5) + "%";   
+        document.getElementById("32WESSDS").style.left = (rockets[n].currentSpeed/2.5) + "%";   
     } else if (n==1){
-        document.getElementById("LDSFJA32").style.left = (rockets[n].actualSpeed()/2.5) + "%";        
+        document.getElementById("LDSFJA32").style.left = (rockets[n].currentSpeed/2.5) + "%";        
     }
 }
 function moveLeft(n){
@@ -130,9 +130,9 @@ function moveLeft(n){
     document.getElementById("LDSFJA32").style.transition = "all 1s";
     
     if (n==0){
-        document.getElementById("32WESSDS").style.left = (rockets[n].actualSpeed()/2.5) + "%";        
+        document.getElementById("32WESSDS").style.left = (rockets[n].currentSpeed/2.5) + "%";        
     } else if (n==1){
-        document.getElementById("LDSFJA32").style.left = (rockets[n].actualSpeed()/2.5) + "%";        
+        document.getElementById("LDSFJA32").style.left = (rockets[n].currentSpeed/2.5) + "%";        
     }
 }
 
@@ -145,20 +145,20 @@ function accelerate(n){
         rocketless();
     } else {
         rockets[n].speedUp();    
-        if (rockets[n].actualSpeed() == rockets[n].maxPower()){
+        if (rockets[n].currentSpeed == rockets[n].getMaxPower()){
             document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has reached its maximum power_";
             var idTitle = "title-"+ n;
             var idScreen = "screen-"+n;
             document.getElementById(idTitle).innerHTML = "Max power!";
             document.getElementById(idScreen).style.color = "brown";
             document.getElementById(idScreen).style.textShadow = "2px 2px darkred";        
-            document.getElementById(idScreen).innerHTML = rockets[n].actualSpeed();
+            document.getElementById(idScreen).innerHTML = rockets[n].currentSpeed;
         } else {
             document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has accelerated_";
             var idTitle = "title-"+ n;
             var idScreen = "screen-"+n;
             document.getElementById(idTitle).innerHTML = "speed up!";
-            document.getElementById(idScreen).innerHTML = rockets[n].actualSpeed();
+            document.getElementById(idScreen).innerHTML = rockets[n].currentSpeed;
 
             /*Move right*/
             moveRight(n);
@@ -170,17 +170,17 @@ function decrease(n){
     if(noRockets){
         rocketless();
     } else {
-        if(rockets[n].actualSpeed() !== 0){
+        if(rockets[n].currentSpeed !== 0){
             rockets[n].brake();
             document.getElementById("info").innerHTML = "Rocket's " + rockets[n].code + " speed has decresed_";
             var idTitle = "title-"+ n;
             var idScreen = "screen-"+n;
             document.getElementById(idScreen).removeAttribute("style");
             document.getElementById(idTitle).innerHTML = "Slow down!";
-            document.getElementById(idScreen).innerHTML = rockets[n].actualSpeed();
+            document.getElementById(idScreen).innerHTML = rockets[n].currentSpeed;
             
             moveLeft(n);
-            if (rockets[n].actualSpeed() == 0){
+            if (rockets[n].currentSpeed == 0){
                 printStopped(n);
 
             }
@@ -196,7 +196,7 @@ function printStopped(n){
     document.getElementById(idTitle).innerHTML = "Stopped";
     document.getElementById(idScreen).innerHTML = "___";
     document.getElementById("info").innerHTML = "Rocket " + rockets[n].code + " has stopped_";
-    console.log(rockets[n].code, rockets[n].actualSpeed());
+    console.log(rockets[n].code, rockets[n].currentSpeed);
 }
 
 /******Print Rockets Info*****/

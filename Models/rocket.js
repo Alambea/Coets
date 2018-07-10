@@ -11,35 +11,33 @@ function Rocket (code, propeller) {
     }
     
     this.propeller = pr;
+    this.currentSpeed = 0;
     
 /**CONTROLAR L'AUGMENTAT DE LA POTENCIA DE CADA PROPULSOR FINS AL SEU MAXIM**/
     this.speedUp = function() {
         for (var i=0 ; i<pr.length ; i++){
-            if (pr[i].actualPower < pr[i].maxPower){ 
-             pr[i].setActualPower(pr[i].actualPower + 10);
-            }
-        }   
+            pr[i].accelerate();
+        } 
+        console.log(propeller);
+        this.computeSpeed();
     };
     
     this.brake = function() {
         for (var i=0 ; i<pr.length ; i++){
-                
-            if (pr[i].actualPower >= 10) {
-                pr[i].setActualPower(pr[i].actualPower - 10);
-            } else {
-                console.log("The rocket " + this.code + "is stopped.");
-            }
+            pr[i].decrease();
         }
+        console.log(propeller);
+        this.computeSpeed();
     };
     
-    this.actualSpeed = function() {
+    this.computeSpeed = function() {
         var speed = 0;
         for (var i=0 ; i<pr.length ; i++){
             speed += pr[i].actualPower;
         }
-        return speed;
-    }
-    this.maxPower = function(){
+        this.currentSpeed = speed;
+    };
+    this.getMaxPower = function(){
         var mP = 0;
         for (var i=0 ; i<pr.length ; i++){
             mP += pr[i].maxPower;
